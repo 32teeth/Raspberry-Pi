@@ -1,7 +1,7 @@
-#Raspberry Pi - Server
+# Raspberry Pi - Server
 ---
 
-##Description
+## Description
 This document outline a base instruction set for setting up a Raspberry Pi 2 with the following features
 
 * Apache
@@ -18,20 +18,20 @@ again, all commands are run as sudo
 sudo su
 ```
 
-###Install Apache
+### Install Apache
 
 
 ```
 apt-get install apache2 -y
 ```
 
-###Install PHP
+### Install PHP
 
 ```
 apt-get install php5 libapache2-mod-php5 -y
 ```
 
-###Install MySQL
+### Install MySQL
 
 ```
 apt-get install mysql-server php5-mysql -y
@@ -40,7 +40,7 @@ MySQL you will be asked for a root password.
 
 You'll need to remember this to allow your website to access the database.
 
-###Download, Install and Run WordPress
+### Download, Install and Run WordPress
 
 ```
 cd /var/www/html/
@@ -52,7 +52,7 @@ mv wordpress/* .
 rm -rf wordpress latest.tar.gz
 ```
 
-####Create a database for WordPress
+#### Create a database for WordPress
 ```
 mysql -uroot -p
 ```
