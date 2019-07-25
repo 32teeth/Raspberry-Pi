@@ -1,7 +1,7 @@
-#Raspberry Pi - Virtual Hosts
+# Raspberry Pi - Virtual Hosts
 ---
 
-##Description
+## Description
 This document outline a base instruction set for setting up a Raspberry Pi 2 with the following features
 
 * Virtual Hosts
@@ -44,7 +44,7 @@ nano index.html
 ```
 *ctrl+x y*
 
-#####create a new conf file
+##### create a new conf file
 
 ```
 cd /etc/apache2/sites-available
@@ -85,7 +85,7 @@ add these lines to the bottom
 
 *ctrl+x y*
 
-#####set up for apache to run
+##### set up for apache to run
 
 ```
 cd
@@ -114,7 +114,7 @@ test it in a browser by entering 'example.com' in the location. if all went well
 |---:|
 | **example.com** |
 
-###bonus
+### bonus
 want to change your root host name from 'raspberry' to whatever else?
 
 in this case we changed it to example
