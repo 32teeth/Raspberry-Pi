@@ -1,7 +1,7 @@
-#Raspberry Pi - Access Point
+# Raspberry Pi - Access Point
 ---
 
-##Description
+## Description
 This document outline a base instruction set for setting up a Raspberry Pi 2 with the following features
 
 * Raspbian Jessie *(OS based on Debian Jessie)*
@@ -9,13 +9,13 @@ This document outline a base instruction set for setting up a Raspberry Pi 2 wit
 
 ---
 
-##Requirements
+## Requirements
 
 1. 1x [Raspberry Pi 2](https://www.adafruit.com/products/2358)
 2. 1x [Micro SD Card](https://www.adafruit.com/products/2693) *(8GB minumum, 16GB preferred)*
 3. 2x [USB Wifi module](https://www.adafruit.com/products/814) *(with RTl8192 drive)*
 
-####Setup Requirements
+#### Setup Requirements
 
 1. A computer (we used a Mac for this example)
 2. Network connection (hardwire for Raspberry Pi)
@@ -25,12 +25,12 @@ This document outline a base instruction set for setting up a Raspberry Pi 2 wit
    * [iTerm 2](https://www.iterm2.com/) (or other terminal)
 
 ---
-##Setup
+## Setup
 
 ### Initial
 Once you have downloaded both the Raspbian image and ApplePi Baker
 
-#####OSX
+##### OSX
 1. Run ApplePi Baker
 2. Enter your administrative password
 3. Select your SD Card
@@ -39,7 +39,7 @@ Once you have downloaded both the Raspbian image and ApplePi Baker
 6. Have a coffee, sit back, relax (it takes about 5 minutes)
 7. Eject your SD Card
 
-#####First Boot
+##### First Boot
 1. Connect your Ethernet cable
 2. Connect your Wifi Modules
 3. Connect your mouse
@@ -93,7 +93,7 @@ subnet 192.168.42.0 netmask 255.255.255.0 {
 * ```nano /etc/default/isc-dhcp-server``` 
   * replace ```INTERFACES=""``` with ```INTERFACES="wlan1"```	* save the file (ctrl+x, type Y)
 
-#####wlan1 as static IP
+##### wlan1 as static IP
 1. ```ifdown wlan1```
 2. ```nano /etc/network/interfaces```
 3. replace the whole file with
@@ -119,8 +119,8 @@ iface wlan0 inet manual
 # ---
 # ORIGINAL
 # ---	
-#allow-hotplug wlan1
-#iface wlan1 inet manual
+# allow-hotplug wlan1
+# iface wlan1 inet manual
 #    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
 
 # ---
@@ -176,7 +176,7 @@ bridge=br0
 3. ctrl+x y
 4. ```sh -c "echo 1 > /proc/sys/net/ipv4/ip_forward"```
 
-###iptables rules
+### iptables rules
 
 ```
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
@@ -189,7 +189,7 @@ iptables -A FORWARD -i wlan1 -o wlan0 -j ACCEPT
 
 automate on reboot ```sh -c "iptables-save > /etc/iptables.ipv4.nat"```
 
-###Updatehostapd
+### Updatehostapd
 
 ```
 wget http://adafruit-download.s3.amazonaws.com/adafruit_hostapd_14128.zip
@@ -202,7 +202,7 @@ chmod 755 /usr/sbin/hostapd
 
 ctrl+c
 
-###daemon
+### daemon
 ```
 service hostapd start 
 service isc-dhcp-server start
